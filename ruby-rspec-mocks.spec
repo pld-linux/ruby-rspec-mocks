@@ -8,7 +8,7 @@
 Summary:	Rspec-2 doubles (mocks and stubs)
 Name:		ruby-%{gem_name}
 Version:	2.13.1
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/gems/%{gem_name}-%{version}.gem
