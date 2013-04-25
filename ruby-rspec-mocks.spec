@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests		# build without tests
+%bcond_without	tests		# build without tests
 # test needs rspec-core, however rspec-core depends on rspec-mocks
 # runtime part of rspec-mocks does not depend on rspec-core
 
@@ -26,12 +26,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 rspec-mocks provides a test-double framework for rspec including
 support for method stubs, fakes, and message expectations.
 
-%package	doc
+%package doc
 Summary:	Documentation for %{name}
 Group:		Documentation
 Requires:	%{name} = %{version}-%{release}
 
-%description	doc
+%description doc
 This package contains documentation for %{name}.
 
 %prep
