@@ -6,6 +6,7 @@
 
 %define	gem_name	rspec-mocks
 Summary:	Rspec-2 doubles (mocks and stubs)
+Summary(pl.UTF-8):	Pary Rspec-2 (atrapy i zaślepki)
 Name:		ruby-%{gem_name}
 Version:	2.13.1
 Release:	2
@@ -26,13 +27,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 rspec-mocks provides a test-double framework for rspec including
 support for method stubs, fakes, and message expectations.
 
-%package doc
-Summary:	Documentation for %{name}
-Group:		Documentation
-Requires:	%{name} = %{version}-%{release}
-
-%description doc
-This package contains documentation for %{name}.
+%description -l pl.UTF-8
+rspec-mocks dostarcza szkielet pary testowej dla szkieletu rspec,
+obejmujący obsługę zaślepek metod, atrapy oraz oczekiwania
+komunikatów.
 
 %prep
 %setup -q -n %{gem_name}-%{version}
@@ -60,8 +58,3 @@ rm -rf $RPM_BUILD_ROOT
 %{ruby_vendorlibdir}/rspec/mocks
 %dir %{ruby_vendorlibdir}/spec
 %{ruby_vendorlibdir}/spec/mocks.rb
-
-%if 0
-%files	doc
-%defattr(644,root,root,755)
-%endif
