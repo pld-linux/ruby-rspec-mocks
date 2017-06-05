@@ -8,12 +8,12 @@
 Summary:	Rspec-2 doubles (mocks and stubs)
 Summary(pl.UTF-8):	Pary Rspec-2 (atrapy i zaślepki)
 Name:		ruby-%{pkgname}
-Version:	2.13.1
-Release:	4
+Version:	2.14.6
+Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/gems/%{pkgname}-%{version}.gem
-# Source0-md5:	06ca349a77b5f95170c12005f26a0571
+# Source0-md5:	4b94f26a5afe4fbb6c98fb816dcec43c
 URL:		http://github.com/rspec/rspec-mocks
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
