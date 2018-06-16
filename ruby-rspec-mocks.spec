@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests		# build without tests
+%bcond_with	tests		# unit tests [not present when repackaging .gem file]
 # test needs rspec-core, however rspec-core depends on rspec-mocks
 # runtime part of rspec-mocks does not depend on rspec-core
 
@@ -17,9 +17,15 @@ Source0:	http://rubygems.org/gems/%{pkgname}-%{version}.gem
 URL:		http://github.com/rspec/rspec-mocks
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
+BuildRequires:	ruby >= 1:1.8.7
 %if %{with tests}
-BuildRequires:	ruby-rspec
+BuildRequires:	ruby-minitest >= 5.2
+BuildRequires:	ruby-rspec-support >= 3.7.0
 %endif
+# .gemspec contains: s.add_dependency(%q<diff-lcs>.freeze, ["< 2.0", ">= 1.2.0"])
+# but only "rubygems(diff-lcs) < 2.0" is detected, "rubygems(diff-lcs) >= 1.2.0" not...
+Requires:	ruby-diff-lcs >= 1.2.0
+Requires:	ruby-diff-lcs < 2.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
